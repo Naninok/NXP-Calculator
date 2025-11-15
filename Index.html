@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veolia — Chemical Cost Calculator</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Analytics (Optional, keep if needed) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVEP93Q72P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JVEP93Q72P');
+  </script>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- Left Card -->
+  <div class="card">
+    <h1 class="title">NXP — Chemical Calculator</h1>
+
+    <label>Dosage IC1178 (ppm)</label>
+    <input id="dos_ic" type="number" step="any" placeholder="ppm">
+
+    <label>Dosage AP1789 (ppm)</label>
+    <div class="row">
+      <input id="dos_ap" type="number" step="any" placeholder="ppm">
+      <input id="pump_ap" type="number" step="any" placeholder="Pump L/h">
+    </div>
+
+    <label>Waste Water Flow (m³/h)</label>
+    <input id="flow" type="number" step="any">
+
+    <div class="sds-container">
+        <a href="https://legacy.watertechnologies.com/sds-service/sds/getDocument?docID=ka3Pe0000016HtdIAE&fileName=NA" target="_blank" class="sds-button">SDS IC1178</a>
+        <a href="https://legacy.watertechnologies.com/sds-service/sds/getDocument?docID=ka3Pe000000uZr7IAE&fileName=NA" target="_blank" class="sds-button">SDS AP1789</a>
+    </div>
+  </div>
+
+  <!-- Right Card -->
+  <div class="card">
+    <h2>ผลการคำนวณ</h2>
+
+    <div class="results">
+
+      <div class="line"><div>IC1178 — Feed Rate (l/h)</div><div id="fr_ic_l">-</div></div>
+      <div class="line"><div>IC1178 — Feed Rate (kg/h)</div><div id="fr_ic_kg">-</div></div>
+
+      <div class="line"><div>AP1789 — Usage (kg/hr)</div><div id="usage_ap">-</div></div>
+
+      <div class="line"><div>Flow (m³/h)</div><div id="disp_flow">-</div></div>
+      <div class="line"><div>Last update</div><div id="last_update">-</div></div>
+
+      <div class="mixline" id="mix_ap" style="display:none;"></div>
+
+      <!-- Total section removed as price calculations are no longer required -->
+
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
