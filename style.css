@@ -1,125 +1,116 @@
-:root{
+:root {
   --veolia-red: #d9181f;
   --radius: 14px;
   --shadow: 0 8px 30px rgba(0,0,0,0.08);
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-body{
-  margin:0;
-  background:#f5f5f5;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+body {
+  margin: 0;
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.container{
-  width:980px;
-  max-width:94%;
-  display:grid;
+.container {
+  width: 980px;
+  max-width: 100%;
+  display: grid;
   grid-template-columns: 360px 1fr;
-  gap:22px;
+  gap: 22px;
 }
 
-.card{
-  background:white;
-  padding:24px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-.title{
-  margin:0;
-  color:var(--veolia-red);
-  font-size:20px;
-  font-weight:700;
+.title {
+  margin: 0;
+  color: var(--veolia-red);
+  font-size: 22px;
+  font-weight: 700;
 }
 
-label{
-  display:block;
-  margin-top:14px;
-  font-weight:600;
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
 }
 
-input[type=number]{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:15px;
-  box-sizing:border-box;
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-.row{
-  display:flex;
-  gap:10px;
-  align-items:center;
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.results .line{
-  display:flex;
-  justify-content:space-between;
-  padding:8px 0;
-  border-bottom:1px dashed rgba(0,0,0,0.06);
+.results .line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.06);
 }
 
-.total{
-  margin-top:14px;
-  padding:14px;
-  border-radius:10px;
-  font-weight:700;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(217,24,31,0.07);
-  color:var(--veolia-red);
-}
-
-.mixline{
-  margin-top:12px;
-  font-size:20px;
-  color:#0059ff;
-  font-weight:600;
+.mixline {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #0059ff;
+  font-weight: 600;
 }
 
 .sds-container {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 .sds-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: var(--veolia-red);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    flex-grow: 1;
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: var(--veolia-red);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .sds-button:hover {
-    opacity: 0.9;
-
+  opacity: 0.9;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
+/* ------------------------------ */
+/* 📱 MOBILE RESPONSIVE (สำคัญมาก) */
+/* ------------------------------ */
+@media (max-width: 700px) {
   body {
     padding: 10px;
     align-items: flex-start;
   }
 
   .container {
-    width: 100%;
     display: block;
+    width: 100%;
   }
 
   .card {
-    margin-bottom: 16px;
-    padding: 18px;
+    margin-bottom: 18px;
+    padding: 20px;
   }
 
   .row {
@@ -127,7 +118,11 @@ input[type=number]{
   }
 
   input[type=number] {
-    font-size: 16px; /* ป้องกัน iOS ซูมอัตโนมัติ */
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 20px;
   }
 
   .mixline {
