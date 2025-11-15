@@ -77,29 +77,7 @@ input[type=number]{
 
 .mixline{
   margin-top:12px;
-  font-size:20px;
+  font-size:14px;
   color:#0059ff;
   font-weight:600;
-}
-
-.sds-container {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.sds-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: var(--veolia-red);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    flex-grow: 1;
-}
-
-.sds-button:hover {
-    opacity: 0.9;
 }
