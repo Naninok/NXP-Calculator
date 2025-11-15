@@ -67,7 +67,7 @@ input[type=number] {
 
 .mixline {
   margin-top: 12px;
-  font-size: 18px;
+  font-size: 24px;
   color: #0059ff;
   font-weight: 600;
 }
@@ -129,3 +129,4 @@ input[type=number] {
     font-size: 16px;
   }
 }
+
