@@ -1,14 +1,17 @@
-const DENSITY_IC1178 = 1.1; // Assumed density (kg/L) for IC1178 product
+const PRICE_IC = 32.38;
+const PRICE_AP = 134.34;
 
 const inDosIC = document.getElementById("dos_ic");
 const inDosAP = document.getElementById("dos_ap");
 const inPumpAP = document.getElementById("pump_ap");
 const inFlow = document.getElementById("flow");
 
-const out_fr_ic_l = document.getElementById("fr_ic_l");
-const out_fr_ic_kg = document.getElementById("fr_ic_kg");
+const out_usage_ic = document.getElementById("usage_ic");
+const out_price_ic = document.getElementById("price_ic");
 const out_usage_ap = document.getElementById("usage_ap");
+const out_price_ap = document.getElementById("price_ap");
 const out_flow = document.getElementById("disp_flow");
+const out_total = document.getElementById("total_price");
 const out_update = document.getElementById("last_update");
 
 const out_mix_ap = document.getElementById("mix_ap");
@@ -30,28 +33,30 @@ function calculate() {
 
   out_flow.textContent = fnum(f) + " m³/h";
 
-  // IC1178 Feed Rate
-  const fr_ic_kg = (d_ic * f) / 1000; // kg/hr (assuming ppm = g/m3, which is 1000 * kg/m3)
-  const fr_ic_l = fr_ic_kg / DENSITY_IC1178; // L/hr
+  // Usage
+  const usage_ic = (d_ic * f) / 1000;
+  const usage_ap = (d_ap * f) / 1000;
 
-  out_fr_ic_l.textContent = fnum(fr_ic_l) + " l/h";
-  out_fr_ic_kg.textContent = fnum(fr_ic_kg) + " kg/h";
+  // Price
+  const price_ic = usage_ic * PRICE_IC * 24;
+  const price_ap = usage_ap * PRICE_AP * 24;
 
-  // AP1789 Usage
-  const usage_ap = (d_ap * f) / 1000; // kg/hr
+  out_usage_ic.textContent = fnum(usage_ic) + " kg/hr";
+  out_price_ic.textContent = fnum(price_ic) + " Baht/day";
 
   out_usage_ap.textContent = fnum(usage_ap) + " kg/hr";
+  out_price_ap.textContent = fnum(price_ap) + " Baht/day";
+
+  out_total.textContent = fnum(price_ic + price_ap) + " Baht/day";
 
   out_update.textContent = new Date().toLocaleString();
 
-  // Mixing AP1789
+  // Mixing AP1715
   if (isFinite(pump_ap) && pump_ap > 0 && usage_ap > 0) {
-    // Calculate grams per 1000L of solution based on feed rate and pump capacity
-    // usage_ap is kg/hr, pump_ap is L/hr
-    const g_per_1000L = (usage_ap / pump_ap) * 1_000_000; // (kg/hr) / (L/hr) * 1,000,000 g/kg
+    const g_per_1000L = (usage_ap / pump_ap) * 1_000_000;
     out_mix_ap.style.display = "block";
     out_mix_ap.textContent =
-      "ต้องใช้ AP1789: " + fnum(g_per_1000L, 0) + " g ต่อ 1000 L Solution";
+      "ต้องใช้ AP1715: " + fnum(g_per_1000L, 0) + " g ต่อ 1000 L Solution";
   } else {
     out_mix_ap.style.display = "none";
   }
