@@ -102,4 +102,35 @@ input[type=number]{
 
 .sds-button:hover {
     opacity: 0.9;
+
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .container {
+    width: 100%;
+    display: block;
+  }
+
+  .card {
+    margin-bottom: 16px;
+    padding: 18px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  input[type=number] {
+    font-size: 16px; /* ป้องกัน iOS ซูมอัตโนมัติ */
+  }
+
+  .mixline {
+    font-size: 16px;
+  }
 }
